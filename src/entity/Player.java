@@ -76,44 +76,32 @@ public class Player extends Entity {
 //        g2.fillRect(x, y, gp.tileSize, gp.tileSize);
         BufferedImage image = null;
 
-        switch (direction){
-            case "up": {
-                if (sprintNum == 1) {
-                    image = up1;
-                }
-                if (sprintNum == 2) {
-                    image = up2;
-                }
-                break;
+        if (direction.equals("up")) {
+            if (sprintNum == 1) {
+                image = up1;
+            } else if (sprintNum == 2) {
+                image = up2;
             }
-            case "down": {
-                if (sprintNum == 1) {
-                    image = down1;
-                }
-                if (sprintNum == 2) {
-                    image = down2;
-                }
-                break;
+        } else if (direction.equals("down")) {
+            if (sprintNum == 1) {
+                image = down1;
+            } else if (sprintNum == 2) {
+                image = down2;
             }
-            case "left": {
-                if (sprintNum == 1) {
-                    image = left1;
-                }
-                if (sprintNum == 2) {
-                    image = left2;
-                }
-                break;
+        } else if (direction.equals("left")) {
+            if (sprintNum == 1) {
+                image = left1;
+            } else if (sprintNum == 2) {
+                image = left2;
             }
-            case "right": {
-                if (sprintNum == 1) {
-                    image = right1;
-                }
-                if (sprintNum == 2) {
-                    image = right2;
-                }
-                break;
+        } else if (direction.equals("right")) {
+            if (sprintNum == 1) {
+                image = right1;
+            } else if (sprintNum == 2) {
+                image = right2;
             }
         }
+
         g2.drawImage(image, x, y, gp.tileSize, gp.tileSize, null);
     }
 }

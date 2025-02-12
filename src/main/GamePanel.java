@@ -19,7 +19,7 @@ public class GamePanel extends JPanel implements Runnable {
     KeyBoardHandler keyH = new KeyBoardHandler();
 
     //set game fps
-    int fps = 60;
+    int fps = 30;
 
     //player
     Player player = new Player(this,keyH);
