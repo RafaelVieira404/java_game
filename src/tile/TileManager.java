@@ -78,7 +78,7 @@ public class TileManager {
                 String line = bufferedReader.readLine();
 
                 while (col < gamePanel.maxScreenCol) {
-                    String[] numbers = line.split(" ");
+                    String[] numbers = line.split(" "); //When creating map in txt file put a space between the numbers
                     int num = Integer.parseInt(numbers[col]);
 
                     mapTileNum[col][row] = num;
