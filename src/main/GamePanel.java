@@ -8,10 +8,10 @@ import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
     final int screenPanelOriginalSize = 16;
-    final int scale = 3;
+    final int scale = 2;
     public final int tileSize = screenPanelOriginalSize * scale;
-    public final int maxScreenCol = 16;
-    public final int maxScreenRol = 10;
+    public final int maxScreenCol = 40;
+    public final int maxScreenRol = 24;
     public final int screenWidth = maxScreenRol * tileSize;
     public final int screenHeight = maxScreenCol * tileSize;
 
@@ -20,8 +20,15 @@ public class GamePanel extends JPanel implements Runnable {
     //set game fps
     int fps = 60;
 
+    //WORD SETTINGS
+
+    public  int maxWorldCol = 50;
+    public  int maxWorldRow = 50;
+    public final int worldWidth = maxWorldCol * tileSize;
+    public final int worldHeigth = maxWorldRow * tileSize;
+
     TileManager tileManager = new TileManager(this);
-    Player player = new Player(this,keyH);
+    public Player player = new Player(this,keyH);
     Thread gameThread;
 
     public GamePanel() {

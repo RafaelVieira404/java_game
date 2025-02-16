@@ -3,8 +3,8 @@ package entity;
 import java.awt.image.BufferedImage;
 
 public class Entity {
-    public static int x;
-    public static int y;
+    public int worldX;
+    public int worldY;
     public static int speed;
 
     public BufferedImage up1;
