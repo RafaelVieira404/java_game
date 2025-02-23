@@ -1,11 +1,12 @@
 package entity;
 
+import java.awt.*;
 import java.awt.image.BufferedImage;
 
 public class Entity {
     public int worldX;
     public int worldY;
-    public static int speed;
+    public int speed;
 
     public BufferedImage up1;
     public BufferedImage up2;
@@ -20,5 +21,8 @@ public class Entity {
 
     public int sprintCounter = 0;
     public int sprintNum = 1;
+
+    public Rectangle solidArea;
+    public boolean collisionOn = false;
 
 }

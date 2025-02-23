@@ -1,5 +1,6 @@
 package entity;
 
+import main.CollisionChecker;
 import main.GamePanel;
 import main.KeyBoardHandler;
 
@@ -23,6 +24,14 @@ public class Player extends Entity {
         screenX = gp.screenHeight/2 - (gp.tileSize/2);
         screenY = gp.screenWidth/2 - (gp.tileSize/2);
 
+        // Use this to set the size of collision area the player will have, have in mind the size of the tile you are using
+        solidArea = new Rectangle();
+        solidArea.x = 8; // index start of the rectangle in x
+        solidArea.y = 16; // index start of the rectangle in y
+        solidArea.height = 32; // the size of the rectangle
+        solidArea.width = 32;
+
+
     }
 
     public void getPlayerImage() {
@@ -42,8 +51,8 @@ public class Player extends Entity {
     }
 
     public void setDefaultValues() {
-        worldX = gp.tileSize * 10;
-        worldY = gp.tileSize * 10;
+        worldX = gp.tileSize * 30 ;
+        worldY = gp.tileSize * 30;
         speed = 4;
         direction = "down";
     }
@@ -54,16 +63,41 @@ public class Player extends Entity {
 
            if (keyH.pgUpKeyPressed) {
                direction = "up";
-               worldY -= speed;
            } else if (keyH.pgDownKeyPressed) {
                direction = "down";
-               worldY += speed;
            } else if (keyH.leftKeyPressed) {
                direction = "left";
-               worldX -= speed;
            } else if (keyH.rightKeyPressed) {
                direction = "right";
-               worldX += speed;
+           }
+           // checkCollision tileCollision
+           collisionOn = false;
+           gp.collisionChecker.tileCheck(this);
+
+           // IF collision false player can move
+
+           if (!collisionOn) {
+               switch (direction) {
+                   case "up": {
+                       worldY -= speed;
+                       break;
+                   }
+
+                   case "down": {
+                       worldY += speed;
+                       break;
+                   }
+
+                   case "left": {
+                       worldX -= speed;
+                       break;
+                   }
+
+                   case "right": {
+                       worldX += speed;
+                       break;
+                   }
+               }
            }
 
            sprintCounter += 1;

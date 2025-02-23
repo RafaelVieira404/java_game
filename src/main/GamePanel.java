@@ -7,11 +7,11 @@ import javax.swing.*;
 import java.awt.*;
 
 public class GamePanel extends JPanel implements Runnable {
-    final int screenPanelOriginalSize = 16;
+    final int screenPanelOriginalSize = 32;
     final int scale = 2;
     public final int tileSize = screenPanelOriginalSize * scale;
-    public final int maxScreenCol = 40;
-    public final int maxScreenRol = 24;
+    public final int maxScreenCol = 26;
+    public final int maxScreenRol = 15;
     public final int screenWidth = maxScreenRol * tileSize;
     public final int screenHeight = maxScreenCol * tileSize;
 
@@ -22,10 +22,12 @@ public class GamePanel extends JPanel implements Runnable {
 
     //WORD SETTINGS
 
-    public  int maxWorldCol = 50;
-    public  int maxWorldRow = 50;
+    public  int maxWorldCol = 200;
+    public  int maxWorldRow = 200;
     public final int worldWidth = maxWorldCol * tileSize;
-    public final int worldHeigth = maxWorldRow * tileSize;
+    public final int worldHeight = maxWorldRow * tileSize;
+
+    public CollisionChecker collisionChecker = new CollisionChecker(this);
 
     TileManager tileManager = new TileManager(this);
     public Player player = new Player(this,keyH);
